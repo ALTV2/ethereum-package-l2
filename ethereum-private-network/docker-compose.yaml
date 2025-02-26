@@ -2,44 +2,22 @@ version: '3.8'
 
 services:
   ethereum-node1:
-    image: ethereum/client-go:v1.10.26
+    build: .
     container_name: ethereum-node1
     ports:
       - "30303:30303"
       - "8545:8545"
     volumes:
       - node1-data:/root/.ethereum
-    command: >
-      --networkid 15
-      --maxpeers 2
-      --nodiscover
-      --http
-      --http.addr 0.0.0.0
-      --http.port 8545
-      --http.api eth,net,web3,personal,admin
-      --allow-insecure-unlock
-      --syncmode full
-      --snapshot=false
 
   ethereum-node2:
-    image: ethereum/client-go:v1.10.26
+    build: .
     container_name: ethereum-node2
     ports:
       - "30304:30303"
       - "8546:8545"
     volumes:
       - node2-data:/root/.ethereum
-    command: >
-      --networkid 15
-      --maxpeers 2
-      --nodiscover
-      --http
-      --http.addr 0.0.0.0
-      --http.port 8545
-      --http.api eth,net,web3,personal,admin
-      --allow-insecure-unlock
-      --syncmode full
-      --snapshot=false
 
 volumes:
   node1-data:

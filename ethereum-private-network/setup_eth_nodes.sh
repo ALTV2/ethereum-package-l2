@@ -40,6 +40,10 @@ geth_attach "$NODE1" "admin.addPeer($ENODE2)"
 echo "Добавление $NODE1 как пира на $NODE2..."
 geth_attach "$NODE2" "admin.addPeer($ENODE1)"
 
+echo "Ожидание 60 секунд..."
+sleep 60
+echo "Продолжаем выполнение!"
+
 # --- Шаг 4: Проверка подключения пиров ---
 echo "Проверка пиров на $NODE1..."
 geth_attach "$NODE1" "admin.peers"

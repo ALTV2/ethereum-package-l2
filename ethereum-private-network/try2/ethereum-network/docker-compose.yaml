@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  node1:
+    image: ethereum/client-go:v1.10.18
+    container_name: eth-node1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        geth --datadir /root/.ethereum init /root/genesis.json &&
+        geth --networkid 1337 --nodiscover --http --http.addr "0.0.0.0" --http.port 8545 --http.api "eth,net,web3" --allow-insecure-unlock --port 30303 --miner.etherbase=0x0000000000000000000000000000000000000001 --mine
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+    volumes:
+      - node1_data:/root/.ethereum
+      - ./genesis.json:/root/genesis.json
+
+  node2:
+    image: ethereum/client-go:v1.10.18
+    container_name: eth-node2
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >
+        geth --datadir /root/.ethereum init /root/genesis.json &&
+        geth --networkid 1337 --nodiscover --port 30304 --miner.etherbase=0x0000000000000000000000000000000000000002 --mine
+    ports:
+      - "30304:30304"
+    volumes:
+      - node2_data:/root/.ethereum
+      - ./genesis.json:/root/genesis.json
+
+volumes:
+  node1_data:
+  node2_data:

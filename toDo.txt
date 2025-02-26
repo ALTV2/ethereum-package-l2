@@ -1,0 +1,7 @@
+kurtosis enclave rm -f my-testnet
+kurtosis run --enclave my-testnet github.com/ethpandaops/ethereum-package --args-file conf1.yaml
+Подключиться к el-1-geth-lighthouse:
+  geth attach ws://127.0.0.1:54146
+
+web3.fromWei(eth.getBalance("0xfirst_account"), "ether")
+web3.fromWei(eth.getBalance("0xsecond_account"), "ether")
