@@ -20,7 +20,7 @@ nonce = web3.eth.get_transaction_count(from_address)
 # Создание транзакции
 transaction = {
   'to': to_address,
-  'value': web3.to_wei(1, 'ether'),
+  'value': web3.to_wei(9999999, 'ether'),
   'gas': 21000,
   'gasPrice': web3.to_wei('50', 'gwei'),
   'nonce': nonce,
