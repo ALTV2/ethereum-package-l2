@@ -1,7 +1,7 @@
 from web3 import Web3
 
 # Параметры подключения к вашей Ethereum-ноде
-provider_url = 'ws://127.0.0.1:52799'  # WebSocket-порт ноды el-1-geth-lighthouse
+provider_url = 'ws://127.0.0.1:50827'  # WebSocket-порт ноды el-1-geth-lighthouse
 web3 = Web3(Web3.LegacyWebSocketProvider(provider_url))
 
 # Проверка подключения
@@ -10,9 +10,9 @@ if not web3.is_connected():
   exit()
 
 # Параметры транзакции
-from_address = "0x8943545177806ED17B9F23F0a21ee5948eCaa776"  # Первый предзагруженный аккаунт
-to_address = "0xE25583099BA105D9ec0A67f5Ae86D90e50036425"    # Второй предзагруженный аккаунт
-private_key = "bcdf20249abf0ed6d944c0288fad489e33f66b3960d9e6229c1cd214ed3bbe31"  # Приватный ключ отправителя
+from_address = "0xD8F3183DEF51A987222D845be228e0Bbb932C222"  # Первый предзагруженный аккаунт
+to_address = "0xafF0CA253b97e54440965855cec0A8a2E2399896"    # Второй предзагруженный аккаунт
+private_key = "c5114526e042343c6d1899cad05e1c00ba588314de9b96929914ee0df18d46b2"  # Приватный ключ отправителя
 
 # Получение nonce для отправителя
 nonce = web3.eth.get_transaction_count(from_address)

@@ -31,7 +31,7 @@ participants:
     el_extra_labels: {}
 
     # A list of optional extra params that will be passed to the EL client container for modifying its behaviour
-    el_extra_params: ["--rpc.enabledeprecatedpersonal"]
+    el_extra_params: ["--ws","--ws.api","eth,net,web3,admin,personal","--http","--http.api","eth,net,web3,admin,personal", "--rpc.enabledeprecatedpersonal"]
 
     # A list of tolerations that will be passed to the EL client container
     # Only works with Kubernetes
